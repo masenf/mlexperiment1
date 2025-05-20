@@ -57,6 +57,7 @@ def experiment_table() -> rx.Component:
                 ),
                 rx.fragment(),
             ),
+            rx.el.div(class_name="flex-grow"),
             rx.cond(
                 (
                     ExperimentState.selected_experiment_id_1
@@ -69,7 +70,13 @@ def experiment_table() -> rx.Component:
                 & ~ExperimentState.is_comparing
                 & ExperimentState.is_table_collapsed,
                 rx.el.button(
-                    "Compare Experiment",
+                    rx.hstack(
+                        "Compare ",
+                        rx.icon(
+                            tag="chevron_right",
+                            class_name="text-white",
+                        ),
+                    ),
                     on_click=ExperimentState.start_comparison_mode,
                     class_name="mb-4 px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600 transition-colors",
                 ),
