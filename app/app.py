@@ -12,7 +12,7 @@ def index() -> rx.Component:
     return rx.el.div(
         experiment_table(),
         attribute_graphs_section(),
-        class_name="container mx-auto p-4",
+        class_name="container mx-auto p-4 bg-green-50 min-h-screen",
         on_mount=ExperimentState.initial_load,
     )
 
