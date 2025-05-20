@@ -18,4 +18,4 @@ def index() -> rx.Component:
 
 
 app = rxe.App(theme=rx.theme(appearance="light"))
-app.add_page(index)
+app.add_page(index, title="ML Experiment Comparison")

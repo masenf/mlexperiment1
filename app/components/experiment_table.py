@@ -47,9 +47,13 @@ def experiment_table() -> rx.Component:
             rx.cond(
                 ExperimentState.is_table_collapsed,
                 rx.el.button(
-                    "Show All Experiments / Reset",
+                    rx.icon(
+                        tag="chevron_left",
+                        class_name="text-white",
+                    ),
                     on_click=ExperimentState.expand_table,
-                    class_name="mb-4 mr-2 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors",
+                    class_name="mb-4 mr-2 p-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors flex items-center justify-center",
+                    title="Show All Experiments / Reset",
                 ),
                 rx.fragment(),
             ),
@@ -71,7 +75,7 @@ def experiment_table() -> rx.Component:
                 ),
                 rx.fragment(),
             ),
-            class_name="flex flex-wrap",
+            class_name="flex flex-wrap items-center",
         ),
         rx.cond(
             ExperimentState.is_comparing,
